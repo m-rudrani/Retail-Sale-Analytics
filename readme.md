@@ -1,8 +1,8 @@
-# 🛒 Retail Sales Analytics Project
+# Retail Sales Analytics Project
 
 ---
 
-# 📌 Project Overview
+# Project Overview
 
 This project demonstrates a complete **end-to-end Retail Sales Analytics workflow** using **Python, PostgreSQL, and Power BI**. The objective is to transform raw retail transaction data into structured, query-ready datasets and deliver business insights through interactive dashboards.
 
@@ -10,23 +10,23 @@ The project simulates a real-world retail environment and focuses on customer be
 
 ---
 
-# 📷 Dashboard Preview
+# Dashboard Preview
 
-## 🏠 Home Dashboard
+## Home Dashboard
 
 ![Home Dashboard](screenshots/home_dashboard.png)
 
-## 📦 Sales & Product Analysis
+## Sales & Product Analysis
 
 ![Sales Dashboard](screenshots/sales_dashboard.png)
 
-## 👥 Customer Analysis
+## Customer Analysis
 
 ![Customer Dashboard](screenshots/customer_dashboard.png)
 
 ---
 
-# 🎯 Objectives
+# Objectives
 
 * Clean and transform raw retail transaction data
 * Store structured data in PostgreSQL database
@@ -37,7 +37,7 @@ The project simulates a real-world retail environment and focuses on customer be
 
 ---
 
-# 🧰 Tools & Technologies Used
+# Tools & Technologies Used
 
 ## Programming
 
@@ -58,7 +58,7 @@ The project simulates a real-world retail environment and focuses on customer be
 
 ---
 
-# 📊 Dataset Information
+# Dataset Information
 
 * **Total Rows:** ~59,542 transactions
 * **Time Period:** 2023 – 2025
@@ -86,7 +86,7 @@ The project simulates a real-world retail environment and focuses on customer be
 
 ---
 
-# 🏗️ Data Pipeline Architecture
+# Data Pipeline Architecture
 
 ```
 Raw Retail Data (CSV)
@@ -103,194 +103,9 @@ Power BI Dashboard
             ↓
 Business Insights & Decision Support
 ```
-
-(Optional: Add architecture_diagram.png inside screenshots folder)
-
 ---
 
-# 🔄 End-to-End Workflow
-
-The project follows a structured pipeline:
-
-**Python → PostgreSQL → Power BI**
-
----
-
-# Step 1 — Data Cleaning (Python)
-
-Raw retail data was cleaned and transformed using Python.
-
-## Key Operations
-
-* Removed duplicate records
-* Handled missing values
-* Converted date formats
-* Created derived columns:
-
-  * year
-  * month
-  * day_name
-  * month_year
-* Standardized categorical values
-* Generated loyalty points logic
-* Outlier detection using IQR method
-* Exported cleaned dataset
-
-## Output File
-
-```
-retail_clean.csv
-```
-
----
-
-# Step 2 — Database Storage (PostgreSQL)
-
-Cleaned data was loaded into PostgreSQL for structured querying.
-
-## Database Name
-
-```
-retail_project
-```
-
-## Main Table
-
-```
-retail_sales
-```
-
-## SQL Tasks Performed
-
-* Data loading using COPY command
-* Aggregation queries
-* Group By analysis
-* Window function analysis
-* Customer-level summary creation
-* Store-level performance analysis
-
-## Created SQL View
-
-```
-customer_summary_view
-```
-
-This view aggregates customer-level metrics such as:
-
-* Total Spend
-* Transaction Count
-* Average Spend
-* Loyalty Points Summary
-
----
-
-# 🧾 Sample SQL Query
-
-Example: Top 10 Customers by Revenue
-
-```sql
-SELECT
-    customer_id,
-    SUM(final_amount) AS total_spent
-FROM retail_sales
-GROUP BY customer_id
-ORDER BY total_spent DESC
-LIMIT 10;
-```
-
----
-
-# Step 3 — Data Visualization (Power BI)
-
-Power BI was connected directly to PostgreSQL database to build interactive dashboards.
-
-## Key Features Implemented
-
-* KPI Cards
-* Interactive Filters
-* Customer Segmentation
-* Pareto Analysis (80/20 rule)
-* Retention Analysis
-* Store Comparison
-* Product Performance Analysis
-
----
-
-# 📐 Sample DAX Measure
-
-**Total Revenue**
-
-```DAX
-Total Revenue = SUM(retail_sales[final_amount])
-```
-
-**Average Order Value (AOV)**
-
-```DAX
-AOV = DIVIDE([Total Revenue], [Total Transactions])
-```
-
----
-
-# 📈 Dashboard Pages
-
----
-
-## 🏠 Page 1 — Home Dashboard
-
-### KPIs Displayed
-
-* Total Revenue
-* Total Customers
-* Total Transactions
-* Average Order Value
-* Total Loyalty Points
-
-### Visuals
-
-* KPI Cards
-* Monthly Revenue Trend
-* Navigation Buttons
-
----
-
-## 📦 Page 2 — Sales & Product Analysis
-
-### Visuals
-
-* Revenue by Product
-* Revenue by Aisle
-* Store Performance Comparison
-* Monthly Sales Trend
-* Weekend vs Weekday Sales
-
-### Insights Generated
-
-* Identification of top-selling products
-* High-performing product categories
-* Seasonal sales trends
-
----
-
-## 👥 Page 3 — Customer Analysis
-
-### Visuals
-
-* Customer Lifetime Value (CLV)
-* Customer Value Segmentation
-* Pareto Analysis (Top Customers)
-* Customer Contribution %
-* Retention Rate by Month
-
-### Customer Segmentation Categories
-
-* Low Value Customers
-* Medium Value Customers
-* High Value Customers
-
----
-
-# 📊 Key Business Insights
+# Key Business Insights
 
 This project helps answer important business questions such as:
 
@@ -302,20 +117,7 @@ This project helps answer important business questions such as:
 
 ---
 
-# 📊 Business Impact
-
-This solution enables:
-
-* Identification of top revenue-generating customers
-* Detection of underperforming stores
-* Optimization of product-level inventory planning
-* Targeted marketing using customer segmentation
-* Monitoring of seasonal sales trends
-* Improved customer retention strategies
-
----
-
-# 📐 Business Metrics Used
+# Business Metrics Used
 
 * **Total Revenue** → Sum of final_amount
 * **Average Order Value (AOV)** → Revenue ÷ Transactions
@@ -325,7 +127,7 @@ This solution enables:
 
 ---
 
-# ⚡ Performance Optimization
+# Performance Optimization
 
 * SQL views used for pre-aggregation
 * PostgreSQL used for scalable storage
@@ -334,43 +136,14 @@ This solution enables:
 
 ---
 
-# 📁 Project Folder Structure
-
-```
-Retail-Sales-Analytics/
-│
-├── data/
-│   └── retail_clean.csv
-│
-├── python/
-│   └── data_cleaning.py
-│
-├── sql/
-│   └── retail_queries.sql
-│
-├── powerbi/
-│   └── Retail_Dashboard.pbix
-│
-├── screenshots/
-│   ├── home_dashboard.png
-│   ├── sales_dashboard.png
-│   ├── customer_dashboard.png
-│   └── architecture_diagram.png
-│
-├── README.md
-└── MDD_Retail_Project.pdf
-```
-
----
-
-# 🚀 How to Run This Project
+# How to Run This Project
 
 ## Step 1 — Run Python Cleaning Script
 
 Clean raw data using Python:
 
 ```
-python data_cleaning.py
+python notebook.py
 ```
 
 This generates:
@@ -403,7 +176,7 @@ CSV HEADER;
 
 ---
 
-# 🏁 Project Outcome
+# Project Outcome
 
 This project demonstrates a complete **Retail Business Intelligence pipeline** from raw data transformation to executive-level dashboard reporting.
 
@@ -411,6 +184,6 @@ The final solution supports **data-driven retail decisions** through structured 
 
 ---
 
-# 📬 Contact
+# Contact
 
 If you found this project useful or have feedback, feel free to connect or share suggestions.
